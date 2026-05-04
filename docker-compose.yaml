@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  netflix-frontend:
+    image: netflixregistry.azurecr.io/netflix-clone:v1
+    container_name: netflix-frontend-app
+    ports:
+      - "80:80"
+    environment:
+      - REACT_APP_BACKEND_URL=http://20.162.125.180:8080
+    restart: always
+
+  netflix-backend:
+    image: netflixregistry.azurecr.io/netflix-backend:v1
+    container_name: netflix-backend-app
+    ports:
+      - "8080:8080"
+    restart: always
